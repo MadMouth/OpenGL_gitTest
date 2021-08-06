@@ -1,0 +1,110 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Исходные файлы">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Файлы заголовков">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="Файлы ресурсов">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="src\Source.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Terrain.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Camera.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="lib\glew-2.1.0\bin\Release\x64\glew32.dll" />
+    <None Include="lib\glew-2.1.0\bin\Release\x64\glewinfo.exe" />
+    <None Include="lib\glew-2.1.0\bin\Release\x64\visualinfo.exe" />
+    <None Include="lib\glew-2.1.0\doc\advanced.html" />
+    <None Include="lib\glew-2.1.0\doc\basic.html" />
+    <None Include="lib\glew-2.1.0\doc\build.html" />
+    <None Include="lib\glew-2.1.0\doc\credits.html" />
+    <None Include="lib\glew-2.1.0\doc\glew.html" />
+    <None Include="lib\glew-2.1.0\doc\glxew.html" />
+    <None Include="lib\glew-2.1.0\doc\index.html" />
+    <None Include="lib\glew-2.1.0\doc\install.html" />
+    <None Include="lib\glew-2.1.0\doc\log.html" />
+    <None Include="lib\glew-2.1.0\doc\wglew.html" />
+    <None Include="lib\glew-2.1.0\bin\Release\Win32\glew32.dll" />
+    <None Include="lib\glew-2.1.0\bin\Release\Win32\glewinfo.exe" />
+    <None Include="lib\glew-2.1.0\bin\Release\Win32\visualinfo.exe" />
+    <None Include="lib\glew-2.1.0\doc\glew.css" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="lib\glew-2.1.0\include\GL\eglew.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\glew-2.1.0\include\GL\glew.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\glew-2.1.0\include\GL\glxew.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\glew-2.1.0\include\GL\wglew.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\GLFW\include\GLFW\glfw3native.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\GLFW\include\GLFW\glfw3.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Shader.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Terrain.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Camera.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Library Include="glfw3.lib" />
+    <Library Include="lib\glew-2.1.0\lib\Release\Win32\glew32.lib" />
+    <Library Include="lib\glew-2.1.0\lib\Release\Win32\glew32s.lib" />
+    <Library Include="lib\glew-2.1.0\lib\Release\x64\glew32.lib" />
+    <Library Include="lib\glew-2.1.0\lib\Release\x64\glew32s.lib" />
+    <Library Include="glew32s.lib" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="lib\glew-2.1.0\doc\travis.png">
+      <Filter>Файлы ресурсов</Filter>
+    </Image>
+    <Image Include="lib\glew-2.1.0\doc\new.png">
+      <Filter>Файлы ресурсов</Filter>
+    </Image>
+    <Image Include="lib\glew-2.1.0\doc\ogl_sm.jpg">
+      <Filter>Файлы ресурсов</Filter>
+    </Image>
+    <Image Include="lib\glew-2.1.0\doc\glew.png">
+      <Filter>Файлы ресурсов</Filter>
+    </Image>
+    <Image Include="lib\glew-2.1.0\doc\github.png">
+      <Filter>Файлы ресурсов</Filter>
+    </Image>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="lib\glew-2.1.0\doc\mesa.txt" />
+    <Text Include="lib\glew-2.1.0\doc\khronos.txt" />
+    <Text Include="lib\glew-2.1.0\doc\gpl.txt" />
+    <Text Include="lib\glew-2.1.0\doc\glew.txt" />
+    <Text Include="lib\glew-2.1.0\LICENSE.txt" />
+    <Text Include="FragmentShader.txt" />
+    <Text Include="VertexShader.txt" />
+  </ItemGroup>
+</Project>

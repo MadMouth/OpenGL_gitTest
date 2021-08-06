@@ -1,0 +1,2 @@
+C:\Users\madmouth\Desktop\backup copy\Debug\OpenGL.exe
+C:\Users\madmouth\Desktop\backup copy\Debug\OpenGL.pdb

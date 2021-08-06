@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <VCProjectVersion>16.0</VCProjectVersion>
+    <Keyword>Win32Proj</Keyword>
+    <ProjectGuid>{aecca8d7-5ddb-4480-ae2a-6e71dde3a529}</ProjectGuid>
+    <RootNamespace>OpenGL</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="Shared">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <LinkIncremental>true</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>GLEW_STATIC;</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>C:\ALL_OpenGL\OpenGLSourceFiles\VS_OpenGL_1\OpenGL\OpenGL\lib; C:\ALL_OpenGL\OpenGLSourceFiles\VS_OpenGL_1\OpenGL\OpenGL\lib\glew-2.1.0\include; C:\ALL_OpenGL\OpenGLSourceFiles\VS_OpenGL_1\OpenGL\OpenGL\lib\GLFW\include;</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>D:\VS_OpenGL\OpenGL\OpenGL\GLFW\lib-vc2019;D:\VS_OpenGL\OpenGL\OpenGL\glew-2.1.0\lib\Release\Win32</AdditionalLibraryDirectories>
+      <AdditionalDependencies>glfw3.lib; opengl32.lib;User32.lib;Gdi32.lib;Shell32.lib;glew32s.lib</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>GLEW_STATIC;</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>C:\ALL_OpenGL\OpenGLSourceFiles\VS_OpenGL_1\OpenGL\OpenGL\lib; C:\ALL_OpenGL\OpenGLSourceFiles\VS_OpenGL_1\OpenGL\OpenGL\lib\glew-2.1.0\include; C:\ALL_OpenGL\OpenGLSourceFiles\VS_OpenGL_1\OpenGL\OpenGL\lib\GLFW\include;</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>D:\VS_OpenGL\OpenGL\OpenGL\GLFW\lib-vc2019;D:\VS_OpenGL\OpenGL\OpenGL\glew-2.1.0\lib\Release\Win32</AdditionalLibraryDirectories>
+      <AdditionalDependencies>glfw3.lib; opengl32.lib;User32.lib;Gdi32.lib;Shell32.lib;glew32s.lib</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>GLEW_STATIC;</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>C:\ALL_OpenGL\OpenGLSourceFiles\VS_OpenGL_1\OpenGL\OpenGL\lib; C:\ALL_OpenGL\OpenGLSourceFiles\VS_OpenGL_1\OpenGL\OpenGL\lib\glew-2.1.0\include; C:\ALL_OpenGL\OpenGLSourceFiles\VS_OpenGL_1\OpenGL\OpenGL\lib\GLFW\include;</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>D:\VS_OpenGL\OpenGL\OpenGL\GLFW\lib-vc2019;D:\VS_OpenGL\OpenGL\OpenGL\glew-2.1.0\lib\Release\Win32</AdditionalLibraryDirectories>
+      <AdditionalDependencies>glfw3.lib; opengl32.lib;User32.lib;Gdi32.lib;Shell32.lib;glew32s.lib</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>GLEW_STATIC;</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>C:\ALL_OpenGL\OpenGLSourceFiles\VS_OpenGL_1\OpenGL\OpenGL\lib; C:\ALL_OpenGL\OpenGLSourceFiles\VS_OpenGL_1\OpenGL\OpenGL\lib\glew-2.1.0\include; C:\ALL_OpenGL\OpenGLSourceFiles\VS_OpenGL_1\OpenGL\OpenGL\lib\GLFW\include;</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>D:\VS_OpenGL\OpenGL\OpenGL\GLFW\lib-vc2019;D:\VS_OpenGL\OpenGL\OpenGL\glew-2.1.0\lib\Release\Win32</AdditionalLibraryDirectories>
+      <AdditionalDependencies>glfw3.lib; opengl32.lib;User32.lib;Gdi32.lib;Shell32.lib;glew32s.lib</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="src\Camera.cpp" />
+    <ClCompile Include="src\Source.cpp" />
+    <ClCompile Include="src\Terrain.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="lib\glew-2.1.0\bin\Release\Win32\glew32.dll" />
+    <None Include="lib\glew-2.1.0\bin\Release\Win32\glewinfo.exe" />
+    <None Include="lib\glew-2.1.0\bin\Release\Win32\visualinfo.exe" />
+    <None Include="lib\glew-2.1.0\bin\Release\x64\glew32.dll" />
+    <None Include="lib\glew-2.1.0\bin\Release\x64\glewinfo.exe" />
+    <None Include="lib\glew-2.1.0\bin\Release\x64\visualinfo.exe" />
+    <None Include="lib\glew-2.1.0\doc\advanced.html" />
+    <None Include="lib\glew-2.1.0\doc\basic.html" />
+    <None Include="lib\glew-2.1.0\doc\build.html" />
+    <None Include="lib\glew-2.1.0\doc\credits.html" />
+    <None Include="lib\glew-2.1.0\doc\glew.css" />
+    <None Include="lib\glew-2.1.0\doc\glew.html" />
+    <None Include="lib\glew-2.1.0\doc\glxew.html" />
+    <None Include="lib\glew-2.1.0\doc\index.html" />
+    <None Include="lib\glew-2.1.0\doc\install.html" />
+    <None Include="lib\glew-2.1.0\doc\log.html" />
+    <None Include="lib\glew-2.1.0\doc\wglew.html" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="src\Camera.h" />
+    <ClInclude Include="lib\glew-2.1.0\include\GL\eglew.h" />
+    <ClInclude Include="lib\glew-2.1.0\include\GL\glew.h" />
+    <ClInclude Include="lib\glew-2.1.0\include\GL\glxew.h" />
+    <ClInclude Include="lib\glew-2.1.0\include\GL\wglew.h" />
+    <ClInclude Include="lib\GLFW\include\GLFW\glfw3.h" />
+    <ClInclude Include="lib\GLFW\include\GLFW\glfw3native.h" />
+    <ClInclude Include="src\Shader.h" />
+    <ClInclude Include="src\Terrain.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Library Include="lib\glew-2.1.0\lib\Release\Win32\glew32.lib" />
+    <Library Include="lib\glew-2.1.0\lib\Release\Win32\glew32s.lib" />
+    <Library Include="lib\glew-2.1.0\lib\Release\x64\glew32.lib" />
+    <Library Include="lib\glew-2.1.0\lib\Release\x64\glew32s.lib" />
+    <Library Include="glew32s.lib" />
+    <Library Include="glfw3.lib" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="lib\glew-2.1.0\doc\github.png" />
+    <Image Include="lib\glew-2.1.0\doc\glew.png" />
+    <Image Include="lib\glew-2.1.0\doc\new.png" />
+    <Image Include="lib\glew-2.1.0\doc\ogl_sm.jpg" />
+    <Image Include="lib\glew-2.1.0\doc\travis.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="FragmentShader.txt" />
+    <Text Include="lib\glew-2.1.0\doc\glew.txt" />
+    <Text Include="lib\glew-2.1.0\doc\gpl.txt" />
+    <Text Include="lib\glew-2.1.0\doc\khronos.txt" />
+    <Text Include="lib\glew-2.1.0\doc\mesa.txt" />
+    <Text Include="lib\glew-2.1.0\LICENSE.txt" />
+    <Text Include="VertexShader.txt" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

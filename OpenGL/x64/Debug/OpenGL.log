@@ -1,0 +1,16 @@
+﻿  Source.cpp
+C:\ALL_OpenGL\OpenGLSourceFiles\VS_OpenGL_1\OpenGL\OpenGL\src\Shader.h(54,34): warning C4101: 'e': unreferenced local variable
+glew32s.lib(glew.obj) : error LNK2005: glewInit already defined in glew32.lib(glew32.dll)
+LINK : warning LNK4098: defaultlib 'LIBCMT' conflicts with use of other libs; use /NODEFAULTLIB:library
+Source.obj : error LNK2019: unresolved external symbol glfwInit referenced in function main
+Source.obj : error LNK2019: unresolved external symbol glfwTerminate referenced in function main
+Source.obj : error LNK2019: unresolved external symbol glfwCreateWindow referenced in function main
+Source.obj : error LNK2019: unresolved external symbol glfwWindowShouldClose referenced in function main
+Source.obj : error LNK2019: unresolved external symbol glfwPollEvents referenced in function main
+Source.obj : error LNK2019: unresolved external symbol glfwMakeContextCurrent referenced in function main
+Source.obj : error LNK2019: unresolved external symbol glfwSwapBuffers referenced in function main
+glfw3.lib : warning LNK4272: library machine type 'x86' conflicts with target machine type 'x64'
+glew32s.lib : warning LNK4272: library machine type 'x86' conflicts with target machine type 'x64'
+lib\glew-2.1.0\lib\Release\Win32\glew32.lib : warning LNK4272: library machine type 'x86' conflicts with target machine type 'x64'
+lib\glew-2.1.0\lib\Release\Win32\glew32s.lib : warning LNK4272: library machine type 'x86' conflicts with target machine type 'x64'
+C:\ALL_OpenGL\OpenGLSourceFiles\VS_OpenGL_1\OpenGL\x64\Debug\OpenGL.exe : fatal error LNK1120: 7 unresolved externals
