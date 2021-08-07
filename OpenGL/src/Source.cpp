@@ -76,7 +76,7 @@ int main(void)
 
     /* creating VAO buffer */
     GLuint VAO;
-    glGenBuffers(1, &VAO);
+    glGenVertexArrays(1, &VAO);
     glBindVertexArray(VAO);
 
     /* creating VBO buffer  */
@@ -121,7 +121,6 @@ int main(void)
 
         glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
 
-        /*VAO Õ≈ –¿¡Œ“¿≈“ -  ”¡ Õ≈ –»—”≈“—ﬂ*/
         glBindVertexArray(VAO);
         glDrawArrays(GL_TRIANGLES, 0, 36);
 
