@@ -79,7 +79,7 @@ int main(void)
     glGenBuffers(1, &VAO);
     glBindVertexArray(VAO);
 
-    /* creating VBO buffer */
+    /* creating VBO buffer  */
     GLuint VBO;
     glGenBuffers(1, &VBO);
     glBindBuffer(GL_ARRAY_BUFFER, VBO);
