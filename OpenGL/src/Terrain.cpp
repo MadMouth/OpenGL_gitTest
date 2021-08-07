@@ -25,8 +25,8 @@ void Terrain::terrainInitialization()
 		indices[i + 5] = j + 2 +xSize;
 	}
 
-	glGenBuffers(1, &TerrainVAO);
-	glGenVertexArrays(TerrainVAO);
+	glGenVertexArrays(1, &TerrainVAO);
+	glBindVertexArray(TerrainVAO);
 
 	glGenBuffers(1, &TerrainVBO);
 	glBindBuffer(GL_ARRAY_BUFFER, TerrainVBO);
