@@ -106,5 +106,7 @@
     <Text Include="lib\glew-2.1.0\LICENSE.txt" />
     <Text Include="FragmentShader.txt" />
     <Text Include="VertexShader.txt" />
+    <Text Include="LightFragmentShader.txt" />
+    <Text Include="LightVertexShader.txt" />
   </ItemGroup>
 </Project>

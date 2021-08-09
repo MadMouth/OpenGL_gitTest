@@ -207,6 +207,8 @@
     <Text Include="lib\glew-2.1.0\doc\khronos.txt" />
     <Text Include="lib\glew-2.1.0\doc\mesa.txt" />
     <Text Include="lib\glew-2.1.0\LICENSE.txt" />
+    <Text Include="LightFragmentShader.txt" />
+    <Text Include="LightVertexShader.txt" />
     <Text Include="VertexShader.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

@@ -8,14 +8,14 @@ void Terrain::terrainInitialization()
 	for (int i = 0,z = 0; z <= zSize; z++) 
 		for (int x = 0; x <= xSize; x++)
 		{
-			vector[i] = glm::vec3(x, 0, z);
+			vector[i] = glm::vec3(x, sin(rand() * 0.5) * 0.35, z);
 			i++;
 		}
 	for (int j = 0, i = 0; i < xSize * zSize-5 ; i += 6, j++)
 	{
-
 		if (i % (xSize*6) == 0 && j!=0)
 			j++;
+
 		indices[i] = j;
 		indices[i + 1] = xSize + j + 1;
 		indices[i + 2] = j + 1;
@@ -45,4 +45,12 @@ void Terrain::terrainDraw()
 {
 	glBindVertexArray(TerrainVAO);
 	glDrawElements(GL_TRIANGLES, xSize * zSize, GL_UNSIGNED_INT, 0);
+}
+ glm::vec3* Terrain::returnVec(glm::vec3 CubeVec)
+{
+	 glm::vec3 gr[zSize];
+	 for (int i = 0; i< zSize; i++)
+		gr[i] = glm::cross(CubeVec, vector[i]);
+
+	 return gr;
 }

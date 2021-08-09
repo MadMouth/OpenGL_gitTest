@@ -2,7 +2,7 @@
 #include "GL/glew.h"
 #include "GLFW/glfw3.h"
 
-/* Math library */
+
 #include "glm-0.9.9.8/glm/glm.hpp"
 #include "glm-0.9.9.8/glm/gtc/matrix_transform.hpp"
 #include "glm-0.9.9.8/glm/gtc/type_ptr.hpp"
@@ -14,12 +14,12 @@
 int main(void)
 {
     float vertices[] = {
-        -5.0f, -5.0f, -5.0f,  0.0f, 0.0f,
-         5.0f, -5.0f, -5.0f,  1.0f, 0.0f,
-         5.0f,  5.0f, -5.0f,  1.0f, 1.0f,
-        -5.0f, -5.0f, -5.0f,  0.0f, 0.0f,
-         5.0f,  5.0f, -5.0f,  1.0f, 1.0f,
-        -5.0f,  5.0f, -5.0f,  0.0f, 1.0f,
+        -0.5f, -0.5f, -0.5f,  0.0f, 0.0f,
+         0.5f, -0.5f, -0.5f,  1.0f, 0.0f,
+         0.5f,  0.5f, -0.5f,  1.0f, 1.0f,
+        -0.5f, -0.5f, -0.5f,  0.0f, 0.0f,
+         0.5f,  0.5f, -0.5f,  1.0f, 1.0f,
+        -0.5f,  0.5f, -0.5f,  0.0f, 1.0f,
         
         -0.5f, -0.5f,  0.5f,  0.0f, 0.0f,
          0.5f, -0.5f,  0.5f,  1.0f, 0.0f,
@@ -56,30 +56,27 @@ int main(void)
         -0.5f,  0.5f,  0.5f,  0.0f, 0.0f,
         -0.5f,  0.5f, -0.5f,  0.0f, 1.0f
     };
+
     GLFWwindow* window;
 
-    /* Initialize the library */
     if (!glfwInit())
         return -1;
 
-    /* Create a windowed mode window and its OpenGL context */
-    window = glfwCreateWindow(1980, 1024, "OpenGL Project", NULL, NULL);
+
+    window = glfwCreateWindow(1980, 1080, "OpenGL_Light", NULL, NULL);
     if (!window) {
         glfwTerminate();
         return -1;
     }
 
-    /* Make the window's context current */
     glfwMakeContextCurrent(window);
-    glewInit(); //initialization GLEW
+    glewInit();
+    glEnable(GL_DEPTH_TEST);
 
-
-    /* creating VAO buffer */
     GLuint VAO;
     glGenVertexArrays(1, &VAO);
     glBindVertexArray(VAO);
 
-    /* creating VBO buffer  */
     GLuint VBO;
     glGenBuffers(1, &VBO);
     glBindBuffer(GL_ARRAY_BUFFER, VBO);
@@ -87,51 +84,94 @@ int main(void)
     glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 5 * sizeof(float), (void*)0);
     glEnableVertexAttribArray(0);
 
-
-    Camera camera(window);
-    Shader Myshader("C:/ALL_OpenGL/OpenGLSourceFiles/VS_OpenGL_1/OpenGL/OpenGL/VertexShader.txt",
-                    "C:/ALL_OpenGL/OpenGLSourceFiles/VS_OpenGL_1/OpenGL/OpenGL/FragmentShader.txt");
-    Myshader.use();
+    GLuint normalVBO;
+    glGenBuffers(1, &normalVBO);
 
     Terrain terrain;
     terrain.terrainInitialization();
 
-    glEnable(GL_DEPTH_TEST);  
+    Camera camera(window);
+
+    Shader Myshader("C:/ALL_OpenGL/OpenGLSourceFiles/VS_OpenGL_1/OpenGL/OpenGL/VertexShader.txt", // terrain
+                    "C:/ALL_OpenGL/OpenGLSourceFiles/VS_OpenGL_1/OpenGL/OpenGL/FragmentShader.txt");
+
+    Shader lightingShader("C:/ALL_OpenGL/OpenGLSourceFiles/VS_OpenGL_1/OpenGL/OpenGL/LightVertexShader.txt", //cube
+                          "C:/ALL_OpenGL/OpenGLSourceFiles/VS_OpenGL_1/OpenGL/OpenGL/LightFragmentShader.txt");
+  
+
+    Myshader.use();
+    Myshader.setVec3("objectColor", 1.0f, 0.5f, 0.31f);
+    Myshader.setVec3("lightColor", 1.0f, 1.0f, 1.0f);
+
+
 
     while (!glfwWindowShouldClose(window))
     {
-        /* Render here */
         glClearColor(0.146f, 0.129f, 0.129f, 1.0f);
-        glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT); // also clear the depth buffer now!
+        glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+
+
+        Myshader.use();
 
         camera.use(window);
         glm::mat4 view = camera.getView();
-    
-        glm::mat4 trans = glm::mat4(1.0f);
-        trans = glm::rotate(trans,  glm::radians(0.0f), glm::vec3(1.0f, 0.0f, 0.0f));
+
+
+        glm::mat4 model = glm::mat4(1.0f);
+        model = glm::rotate(model, glm::radians(0.0f), glm::vec3(0.0f, 1.0f, 0.0f));
+
+
+        glm::mat4 projection = glm::mat4(1.0f);
+        projection = glm::perspective(glm::radians(90.0f), 1980.0f / 1080.0f, 0.1f, 300.0f);
+
+
+        Myshader.setMat4("model", model);
+        Myshader.setMat4("view", view);
+        Myshader.setMat4("projection", projection);
+        Myshader.setVec3("lightPos", glm::vec3(6 * (float)glfwGetTime() + 1.0f, 1.0f, 8.0f));
+
+        //Draw Terrain
+        terrain.terrainDraw();
 
         
-        glm::mat4 projection = glm::mat4(1.0f);
-        projection = glm::perspective(glm::radians(90.0f), 1980.0f/1024.0f, 0.1f, 200.0f);
+        //Draw Cube
+        lightingShader.use();
 
-        glm::mat4 allmatricies = projection * view * trans;
-        unsigned int transformLoc = glGetUniformLocation(Myshader.ID, "allmatricies");
-        glUniformMatrix4fv(transformLoc, 1, GL_FALSE, glm::value_ptr(allmatricies));
+        model = glm::mat4(1.0f);
+        model = glm::translate(model, glm::vec3(6 * (float)glfwGetTime()+1.0f, 1.0f, 8.0f));
 
 
-        glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
+        glm::mat4 allMatrices = projection * view * model;
+        lightingShader.setMat4("allMatrices", allMatrices);
+        lightingShader.setVec3("lightPos", 6*(float)glfwGetTime() + 1.0f, 1.0f, 8.0f);
+
 
         glBindVertexArray(VAO);
-        glDrawArrays(GL_TRIANGLES, 0, 36);
+        glBindBuffer(GL_ARRAY_BUFFER, normalVBO);
+        glm::vec3* TerrainNorm = terrain.returnVec(glm::vec3(6 * (float)glfwGetTime() + 1.0f, 1.0f, 8.0f));
+        glBufferData(GL_ARRAY_BUFFER, sizeof(TerrainNorm), TerrainNorm, GL_STATIC_DRAW);
+        glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(float), (void*)0);
+        glEnableVertexAttribArray(1);
 
-        terrain.terrainDraw();
+
+        glDrawArrays(GL_TRIANGLES, 0, 36);
+        
+       
+
+
+
+
+
+
+
+
+
+        //glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
 
         glfwSwapBuffers(window);
         
         /* Poll for and process events */
         glfwPollEvents();
-
     }
-
     glfwTerminate();
 };
