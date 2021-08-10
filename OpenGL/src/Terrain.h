@@ -21,7 +21,6 @@ public:
     void terrainInitialization();
 
     glm::vec3* returnVec(glm::vec3 CubeVec);
-
     void terrainDraw();
 };
 

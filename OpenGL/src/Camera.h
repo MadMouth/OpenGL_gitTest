@@ -19,7 +19,7 @@ private:
 public:
 	Camera(GLFWwindow* window)
 	{
-		glfwSetInputMode(window, GLFW_CURSOR, GLFW_CURSOR_DISABLED);
+		//glfwSetInputMode(window, GLFW_CURSOR, GLFW_CURSOR_DISABLED);
 	}
 	void use(GLFWwindow* window);
 	glm::mat4 getView();

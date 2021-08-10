@@ -8,7 +8,7 @@ void Terrain::terrainInitialization()
 	for (int i = 0,z = 0; z <= zSize; z++) 
 		for (int x = 0; x <= xSize; x++)
 		{
-			vector[i] = glm::vec3(x, sin(rand() * 0.5) * 0.35, z);
+			vector[i] = glm::vec3(x,  sin(x+rand())*0.2 , z);
 			i++;
 		}
 	for (int j = 0, i = 0; i < xSize * zSize-5 ; i += 6, j++)

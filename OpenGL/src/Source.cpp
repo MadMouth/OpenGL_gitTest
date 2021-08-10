@@ -1,3 +1,7 @@
+#include "imgui/imgui.h"
+#include "imgui/imgui_impl_glfw.h"
+#include "imgui/imgui_impl_opengl3.h"
+
 #include <iostream>
 #include "GL/glew.h"
 #include "GLFW/glfw3.h"
@@ -10,7 +14,9 @@
 #include "Shader.h"
 #include "Terrain.h"
 #include "Camera.h"
+float yValue = 0.0f;
 
+bool terrainshow = true;
 int main(void)
 {
     float vertices[] = {
@@ -63,7 +69,7 @@ int main(void)
         return -1;
 
 
-    window = glfwCreateWindow(1980, 1080, "OpenGL_Light", NULL, NULL);
+    window = glfwCreateWindow(1980, 1080, "GOVNA_KUSOK_HD_360_SUCKCOCK", NULL, NULL);
     if (!window) {
         glfwTerminate();
         return -1;
@@ -72,6 +78,9 @@ int main(void)
     glfwMakeContextCurrent(window);
     glewInit();
     glEnable(GL_DEPTH_TEST);
+
+
+
 
     GLuint VAO;
     glGenVertexArrays(1, &VAO);
@@ -99,11 +108,27 @@ int main(void)
                           "C:/ALL_OpenGL/OpenGLSourceFiles/VS_OpenGL_1/OpenGL/OpenGL/LightFragmentShader.txt");
   
 
+
+    //CUBE TEST
+    GLuint CubeVAO;
+    glGenVertexArrays(1, &CubeVAO);
+    glBindVertexArray(CubeVAO);
+
+    GLuint CubeVBO;
+    glCreateBuffers(1, &CubeVBO);
+    glBindBuffer(GL_ARRAY_BUFFER, CubeVBO);
+    glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_STATIC_DRAW);
+    glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 5 * sizeof(float), (void*)0);
+    glEnableVertexAttribArray(0);
+
+    glBindVertexArray(0);
+
+
+
+
     Myshader.use();
     Myshader.setVec3("objectColor", 1.0f, 0.5f, 0.31f);
     Myshader.setVec3("lightColor", 1.0f, 1.0f, 1.0f);
-
-
 
     while (!glfwWindowShouldClose(window))
     {
@@ -118,7 +143,7 @@ int main(void)
 
 
         glm::mat4 model = glm::mat4(1.0f);
-        model = glm::rotate(model, glm::radians(0.0f), glm::vec3(0.0f, 1.0f, 0.0f));
+        model = glm::rotate(model, glm::radians(0.0f + yValue), glm::vec3(0.0f, 1.0f, 0.0f));
 
 
         glm::mat4 projection = glm::mat4(1.0f);
@@ -131,7 +156,8 @@ int main(void)
         Myshader.setVec3("lightPos", glm::vec3(6 * (float)glfwGetTime() + 1.0f, 1.0f, 8.0f));
 
         //Draw Terrain
-        terrain.terrainDraw();
+        if (terrainshow)
+         terrain.terrainDraw();
 
         
         //Draw Cube
@@ -156,16 +182,6 @@ int main(void)
 
         glDrawArrays(GL_TRIANGLES, 0, 36);
         
-       
-
-
-
-
-
-
-
-
-
         //glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
 
         glfwSwapBuffers(window);
@@ -173,5 +189,9 @@ int main(void)
         /* Poll for and process events */
         glfwPollEvents();
     }
+
+
+
+
     glfwTerminate();
 };

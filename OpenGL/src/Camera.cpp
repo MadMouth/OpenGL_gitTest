@@ -9,7 +9,6 @@ float lastX = 512, lastY = 384;
 bool firstMouse = true;
 void mouse_callback(GLFWwindow* window, double xpos, double ypos);
 
-
 void Camera::processInput(GLFWwindow* window)
 {
     const float cameraSpeed = 5 * deltaTime;;
@@ -24,6 +23,9 @@ void Camera::processInput(GLFWwindow* window)
         cameraPos += glm::normalize(glm::cross(cameraFront, cameraUp)) * cameraSpeed;
     if (glfwGetKey(window, GLFW_KEY_SPACE) == GLFW_PRESS)
         cameraPos += cameraSpeed * cameraUp;
+
+    if (glfwGetKey(window, GLFW_KEY_C) == GLFW_PRESS)
+        glfwSetInputMode(window, GLFW_CURSOR, GLFW_CURSOR_DISABLED);
 }
 
 void Camera::use(GLFWwindow* window)
